@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask", "TestTask\TestTask.csproj", "{D9FA2C54-5743-47DD-95D1-0FB79B7F3F9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestHelper", "RestHelper\RestHelper.csproj", "{D9FA2C54-5743-47DD-95D1-0FB79B7F3F9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiHelper", "RestApiHelper\RestApiHelper.csproj", "{F1FF1D74-0076-4109-AE15-A265061D37CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{F1FF1D74-0076-4109-AE15-A265061D37CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

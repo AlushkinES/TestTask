@@ -8,8 +8,8 @@
     <ProjectGuid>{D9FA2C54-5743-47DD-95D1-0FB79B7F3F9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestTask</RootNamespace>
-    <AssemblyName>TestTask</AssemblyName>
+    <RootNamespace>RestHelper</RootNamespace>
+    <AssemblyName>RestHelper</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RestApiHelper.Models
+namespace Tests.Models
 {
     public class ResponseModel
     {
