@@ -23,9 +23,9 @@ namespace RestHelper
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<HttpResponseMessage> GetRequest()
+        public async Task<HttpResponseMessage> GetRequest(string queryParams = "")
         {
-            return await _client.GetAsync("");
+            return await _client.GetAsync(queryParams);
         }
 
         public async Task<HttpResponseMessage> GetHotels(string query, string limits = "5", string additionalQuery = "", bool checkResponse = true)
