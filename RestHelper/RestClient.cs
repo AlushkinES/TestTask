@@ -9,28 +9,28 @@ namespace RestHelper
     public class RestClient : IDisposable
     {
         private string _path;
-        private HttpClient client = new HttpClient();
+        private HttpClient _client = new HttpClient();
 
         public RestClient(string baseAddress, string path = "", bool redirection = true)
         {
-            client = new HttpClient(new HttpClientHandler {AllowAutoRedirect = redirection})
+            _client = new HttpClient(new HttpClientHandler {AllowAutoRedirect = redirection})
             {
                 BaseAddress = new Uri(baseAddress),
             };
             _path = path;
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
+            _client.DefaultRequestHeaders.Accept.Clear();
+            _client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task<HttpResponseMessage> GetRequest()
         {
-            return await client.GetAsync("");
+            return await _client.GetAsync("");
         }
 
         public async Task<HttpResponseMessage> GetHotels(string query, string limits = "5", string additionalQuery = "", bool checkResponse = true)
         {
-            var response = await client.GetAsync($"{_path}?query={query}{additionalQuery}&limit={limits}");
+            var response = await _client.GetAsync($"{_path}?query={query}{additionalQuery}&limit={limits}");
             if (checkResponse) 
                 CheckResponse(response); 
             return response;
@@ -43,7 +43,7 @@ namespace RestHelper
 
         public void Dispose()
         {
-            client?.Dispose();
+            _client?.Dispose();
         }
     }
 }

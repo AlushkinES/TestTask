@@ -55,25 +55,13 @@ namespace Tests
             Assert.That(responseContent.result, Is.Not.Empty, "Check result not empty");
             foreach (var result in responseContent.result)
             {
-                Assert.That(JsonConvert.SerializeObject(result).ToLower().Contains(query.ToLower()));
-                switch (result.type)
+                Assert.That(JsonConvert.SerializeObject(result).ToLower().Contains(query.ToLower()), "Check response contain query string");
+                //Данные поля выводятся клиенту
+                Assert.That(result.name, Is.Not.Empty, "Check result name");
+                Assert.That(result.country, Is.Not.Empty, "Check result country");
+                if (result.type == "hotel" || result.type == "airport")
                 {
-                    case "hotel":
-                        Assert.That(result.name, Is.Not.Empty);
-                        Assert.That(result.city, Is.Not.Empty);
-                        Assert.That(result.country, Is.Not.Empty);
-                        break;
-                    case "geo":
-                        Assert.That(result.name, Is.Not.Empty);
-                        Assert.That(result.country, Is.Not.Empty);
-                        break;
-                    case "airport":
-                        Assert.That(result.name, Is.Not.Empty);
-                        Assert.That(result.country, Is.Not.Empty);
-                        Assert.That(result.city, Is.Not.Empty);
-                        break;
-                    default:
-                        throw new Exception("Unknown type of result");
+                    Assert.That(result.city, Is.Not.Empty, "Check result city");
                 }
             }
         }
