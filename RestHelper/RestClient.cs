@@ -11,14 +11,13 @@ namespace RestHelper
         private string _path;
         private HttpClient client = new HttpClient();
 
-        public RestClient(string baseAddress, string path = "")
+        public RestClient(string baseAddress, string path = "", bool redirection = true)
         {
-            client = new HttpClient
+            client = new HttpClient(new HttpClientHandler {AllowAutoRedirect = redirection})
             {
-                BaseAddress = new Uri(baseAddress)
+                BaseAddress = new Uri(baseAddress),
             };
             _path = path;
-            
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));

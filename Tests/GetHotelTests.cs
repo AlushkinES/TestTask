@@ -8,9 +8,9 @@ using RestHelper;
 
 namespace Tests
 {
+    [Timeout(10000)]
     [TestFixture]
     [Category("Category")]
-    [Timeout(30000)]
     public class GetHotelTests
     {
         private RestClient _restClient;
@@ -59,13 +59,18 @@ namespace Tests
                 switch (result.type)
                 {
                     case "hotel":
-                        Assert.That(result.city_name_ascii.Contains(query) || result.name_ascii.Contains(query));
+                        Assert.That(result.name, Is.Not.Empty);
+                        Assert.That(result.city, Is.Not.Empty);
+                        Assert.That(result.country, Is.Not.Empty);
                         break;
                     case "geo":
-                        Assert.That(result.name.Contains(query) ||result.name_orig.Contains(query));
+                        Assert.That(result.name, Is.Not.Empty);
+                        Assert.That(result.country, Is.Not.Empty);
                         break;
                     case "airport":
-                        Assert.That(result.name_ascii.Contains(query) || result.city_slug.Contains(query.ToLower()));
+                        Assert.That(result.name, Is.Not.Empty);
+                        Assert.That(result.country, Is.Not.Empty);
+                        Assert.That(result.city, Is.Not.Empty);
                         break;
                     default:
                         throw new Exception("Unknown type of result");
